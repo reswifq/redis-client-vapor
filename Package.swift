@@ -1,3 +1,5 @@
+// swift-tools-version:4.0
+
 //
 //  Package.swift
 //  VaporRedisClient
@@ -23,11 +25,15 @@ import PackageDescription
 
 let package = Package(
 	name: "VaporRedisClient",
-	targets: [
-		Target(name: "VaporRedisClient")
+	products: [
+		.library(name: "VaporRedisClient", targets: ["VaporRedisClient"])
 	],
 	dependencies: [
-		.Package(url: "https://github.com/reswifq/redis-client.git", majorVersion: 1),
-		.Package(url: "https://github.com/vapor/redis.git", Version(2,0,0, prereleaseIdentifiers: ["alpha"]))
+		.package(url: "https://github.com/reswifq/redis-client.git", .upToNextMajor(from: "1.2.0")),
+		.package(url: "https://github.com/vapor/redis.git", .upToNextMajor(from: "2.0.0"))
+	],
+	targets: [
+		.target(name: "VaporRedisClient", dependencies: ["RedisClient", "Redis"]),
+		.testTarget(name: "VaporRedisClientTests", dependencies: ["VaporRedisClient"])
 	]
 )

@@ -1,6 +1,6 @@
 # VaporRedisClient
 
-![Swift](https://img.shields.io/badge/swift-3.1-brightgreen.svg)
+![Swift](https://img.shields.io/badge/swift-4.0-brightgreen.svg)
 [![Build Status](https://api.travis-ci.org/reswifq/redis-client-vapor.svg?branch=master)](https://travis-ci.org/reswifq/redis-client-vapor)
 [![Code Coverage](https://codecov.io/gh/reswifq/redis-client-vapor/branch/master/graph/badge.svg)](https://codecov.io/gh/reswifq/redis-client-vapor)
 
@@ -15,9 +15,14 @@ import PackageDescription
 
 let package = Package(
     name: "YourProject",
-    targets: [],
+    products: [
+      .executable(name: "YourProject", targets: ["YourProject"])
+    ],
     dependencies: [
-        .Package(url: "https://github.com/reswifq/redis-client-vapor", majorVersion: 1)
+        .package(url: "https://github.com/reswifq/redis-client-vapor", .upToNextMajor(from: "1.1.0"))
+    ],
+    targets: [
+      .target(name: "YourProject", dependencies: ["VaporRedisClient"])
     ]
 )
 ```
