@@ -32,6 +32,10 @@ _**Note:** This will also import some [vapor/redis](https://github.com/vapor/red
 #### Create a client and a queue:
 
 ```
+import Redis
+import Reswifq
+import VaporRedisClient
+
 let client = VaporRedisClient(try TCPClient(hostname: "127.0.0.1", port: 6379))
 
 let queue = Reswifq(client: client)
