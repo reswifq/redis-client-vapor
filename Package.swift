@@ -29,7 +29,7 @@ let package = Package(
 		.library(name: "VaporRedisClient", targets: ["VaporRedisClient"])
 	],
 	dependencies: [
-		.package(url: "https://github.com/reswifq/redis-client.git", .upToNextMajor(from: "1.2.0")),
+		.package(url: "https://github.com/reswifq/redis-client.git", .upToNextMajor(from: "1.3.0")),
 		.package(url: "https://github.com/vapor/redis.git", .upToNextMajor(from: "2.0.0"))
 	],
 	targets: [

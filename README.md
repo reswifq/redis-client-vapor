@@ -19,7 +19,7 @@ let package = Package(
       .executable(name: "YourProject", targets: ["YourProject"])
     ],
     dependencies: [
-        .package(url: "https://github.com/reswifq/redis-client-vapor", .upToNextMajor(from: "1.1.0"))
+        .package(url: "https://github.com/reswifq/redis-client-vapor", .upToNextMajor(from: "1.2.0"))
     ],
     targets: [
       .target(name: "YourProject", dependencies: ["VaporRedisClient"])
